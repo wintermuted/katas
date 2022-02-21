@@ -1,4 +1,4 @@
-export function twoSum(nums: number[], target: number): number[] {
+export function twoSumDoubleLoopSolution(nums: number[], target: number): number[] {
   let targetIndices: number[] = [];
 
   nums.forEach((value, firstIndex) => {
@@ -18,3 +18,47 @@ export function twoSum(nums: number[], target: number): number[] {
 
   return targetIndices;
 };    
+
+export function twoSumSingleLoopSolution(nums: number[], target: number): number[] {
+  const targetIndices: number[] = [];
+
+  nums.forEach((value, index) => {
+    if (targetIndices.length < 2) {
+      const remainder = target - value;
+      const sliced = nums.slice(index + 1)
+      const itemIndex = sliced.findIndex((n) => n === remainder);
+
+      if (itemIndex !== -1) {
+        const adjustedIndex = itemIndex + index + 1;
+        targetIndices.push(index, adjustedIndex)   
+      }
+    }
+  });
+
+  return targetIndices;
+}
+
+export function twoSumHashTableSolution(nums: number[], target: number): number[] {
+  const targetIndices: number[] = [];
+  const hashMap: { [index: string]: string} = {};
+
+  nums.forEach((value, index) => hashMap[`${index}`] = `${value}`);
+
+  nums.forEach((value, index) => {
+    let complement: number;
+
+    if (targetIndices.length < 2) {
+      complement = target - nums[index];
+
+      const indexOfComplement = Object.keys(hashMap).find(key => {
+        return parseInt(key) !== index && parseInt(hashMap[key]) === complement;
+      });
+    
+      if (!!indexOfComplement) {
+        targetIndices.push(index, parseInt(indexOfComplement))
+      }  
+    }
+  });
+
+  return targetIndices;
+}
