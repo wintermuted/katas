@@ -1,7 +1,7 @@
 import { twoSumSingleLoopSolution, twoSumDoubleLoopSolution, twoSumHashTableSolution } from './two-sum';
 
 describe('twoSum', () => {
-  xdescribe('twoSum - double loop', () => {
+  describe('twoSum - double loop', () => {
     test('test 1 - array beginning', () => {
       expect(twoSumDoubleLoopSolution([2,7,11,15], 9)).toStrictEqual([0,1])
     });
@@ -19,7 +19,7 @@ describe('twoSum', () => {
     });
   })
   
-  xdescribe('twoSum - single loop', () => {
+  describe('twoSum - single loop', () => {
     test('test 1 - array beginning', () => {
       expect(twoSumSingleLoopSolution([2,7,11,15], 9)).toStrictEqual([0,1])
     });
