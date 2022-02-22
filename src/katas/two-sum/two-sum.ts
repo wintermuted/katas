@@ -62,3 +62,20 @@ export function twoSumHashTableSolution(nums: number[], target: number): number[
 
   return targetIndices;
 }
+
+export function twoSumMapSolution(nums: number[], target: number): number[] {
+  let map = new Map();
+  const targetIndices: number[] = [];
+
+  nums.forEach((value, index) => {
+    const remainder = target - value;
+
+    if (map.has(remainder)) {
+      targetIndices.push(map.get(remainder), index);
+    }
+
+    map.set(value, index) 
+  });
+
+  return targetIndices;
+}
