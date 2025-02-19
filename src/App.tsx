@@ -1,13 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { RestaurantMenu } from './interviews/atlassian/phone_screen/component/RestaurantMenu.component';
+import { main } from './interviews/atlassian/technical_interview_1';
 
 function App() {
+  main();
+
   return (
     <div className="App">
       <h1>Components!</h1>
-      <RestaurantMenu />
     </div>
   );
 }
